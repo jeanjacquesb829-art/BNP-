@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chargement...</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- PAGE DE CHARGEMENT -->
+  <div class="loading-screen">
+    <h1 class="top-title">Votre banque en ligne</h1>
+
+    <img src="IMG_9811.jpeg" class="loading-logo">
+
+    <h2 class="loading-text">
+      Chargement<span class="dots">...</span>
+    </h2>
+  </div>
+
+  <script>
+    // Animation des points ...
+    setInterval(() => {
+      const dots = document.querySelector(".dots");
+      dots.textContent = dots.textContent.length < 3 ? dots.textContent + "." : "";
+    }, 500);
+
+    // Après 3 secondes → Aller au mur de connexion
+    setTimeout(() => {
+      window.location.href = "index.html";
+
+}, 3000);
+  </script>
+
+</body>
+</html>
