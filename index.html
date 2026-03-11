@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Banque en ligne</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <!-- LOGIN -->
+  <div id="loginPage" class="login">
+    <h2>Connexion</h2>
+    <input id="email" type="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Mot de passe">
+    <button onclick="login()">Se connecter</button>
+    <p id="error"></p>
+  </div>
+
+  <!-- APPLICATION -->
+  <div id="app" class="container" style="display:none;">
+
+    <div class="sidebar">
+      <h2>Ma Banque en ligne </h2>
+      <ul>
+        <li onclick="showSection('comptes')">Mes comptes</li>
+        <li onclick="showSection('operations')">Mes opérations</li>
+        <li onclick="showSection('virements')">Virements</li>
+        <li onclick="showSection('budget')">Mon budget</li>
+      </ul>
+    </div>
+
+    <div class="main">
+
+      <div class="blocked">
+        ! COMPTE BLOQUÉ 
+pour Sanction imposées de l'Union européenne contre des personnes liées à la Russie
+      </div>
+
+      <!-- SOLDE -->
+      <div class="balance-container">
+        <span>Solde : </span>
+        <span id="balance">12 890,000 €</span>
+        <button onclick="toggleBalance()">Voir / Cacher</button>
+      </div>
+
+      <!-- COMPTES -->
+
+<!-- CARTE BANCAIRE (NOUVELLE VERSION) -->
+<div class="credit-card" onclick="flipCard()">
+
+  <!-- Face avant -->
+  <div class="card-face card-front">
+    <img src="card-bnp.jpeg" class="card-bg">
+
+    <div class="card-number" id="cardNumber">4974 1289 6634 2381</div>
+    <div class="card-name">JEAN JACQUES BERTHELOT</div>
+    <div class="card-exp">12/28</div>
+  </div>
+
+  <!-- Face arrière -->
+  <div class="card-face card-back">
+    <div class="cvv-box">
+      CVV : <span id="cvvNumber">483</span>
+    </div>
+  </div>
+
+</div>
+
+<button class="toggle-btn" onclick="toggleCardInfo()">Cacher / Afficher</button>
+
+        </div>
+        <p><b>IBAN :</b> FR76 3000 6000 0112 3456 7890 189</p>
+      </div>
+
+      <!-- OPERATIONS -->
+      <div id="operations" class="section" style="display:none;">
+        <h2>Transactions</h2>
+        <div id="transactions"></div>
+      </div>
+
+      <!-- VIREMENTS -->
+      <div id="virements" class="section" style="display:none;">
+        <h2>Virement</h2>
+        <input placeholder="Destinataire">
+        <input placeholder="IBAN">
+        <input placeholder="Montant">
+        <button onclick="blocked()">Envoyer</button>
+      </div>
+
+      <!-- BUDGET -->
+      <div id="budget" class="section" style="display:none;">
+        <h2>Dépenses</h2>
+        <canvas id="chart"></canvas>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
